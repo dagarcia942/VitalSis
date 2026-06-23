@@ -1,9 +1,9 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "VitalSis — Salud conectada",
+  title: "VitalSis",
   description:
-    "Anamnesis estructurada, triaje de seguridad y conexión del paciente con homeópatas reales.",
+    "Anamnesis estructurada, triaje de seguridad y conexión del paciente",
 };
 
 export default function RootLayout({ children }) {

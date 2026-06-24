@@ -8,7 +8,7 @@ import {
   Sparkles, LifeBuoy
 } from "lucide-react";
 
-const DOCTOR = { name: "Dra. Elena Vargas", spec: "Homeopatía · Medicina integrativa", reg: "RM 88241" };
+const DOCTOR = { name: "Dra. Elena Vargas", spec: "Homeopatía y Medicina integrativa", reg: "RM 88241" };
 
 const TRI = {
   verde:    { c: "var(--green)", soft: "var(--green-soft)", label: "Rutinario", pill: { color:"#1F7A50", bg:"var(--green-soft)" } },
@@ -84,31 +84,30 @@ function FlowCard({ step, icon, title, text }) {
 function Hero({ go }) {
   return (
     <div className="vs-wrap vs-hero">
-      <div className="vs-eyebrow">Salud conectada · Latinoamérica</div>
       <h1 className="vs-h1">El paciente llega <i>preparado</i>. El médico decide.</h1>
       <p className="vs-lead">
-        VitalSis organiza la historia del paciente antes de la consulta, detecta señales de
-        urgencia y la entrega lista al profesional —homeópata o de medicina general— que
-        diagnostica, formula y conecta con laboratorios y farmacia.
+        VitalSis organiza la historia clínica de cada paciente antes de la consulta, detecta señales de
+        urgencia y la entrega lista al profesional de la salud quien
+        diagnostica y formula.
       </p>
       <div className="vs-cta-row">
         <button className="vs-btn vs-btn-primary" onClick={() => go("intake")}>
-          <User size={18} /> Probar como paciente <ArrowRight size={17} />
+          <User size={18} /> Soy Paciente <ArrowRight size={17} />
         </button>
         <button className="vs-btn vs-btn-ghost" onClick={() => go("doctor")}>
-          <Stethoscope size={18} /> Ver el panel del médico
+          <Stethoscope size={18} /> Soy Médico
         </button>
       </div>
 
       <div className="vs-flow">
         <FlowCard step="01" icon={<ClipboardList size={19} />} title="Anamnesis estructurada"
-          text="El paciente describe su caso guiado paso a paso. Nada de diagnósticos automáticos." />
+          text="El paciente describe su caso guiado paso a paso" />
         <FlowCard step="02" icon={<ShieldCheck size={19} />} title="Triaje de seguridad"
-          text="Detecta banderas rojas y deriva a urgencias en lugar de agendar una cita." />
+          text="Detecta urgencias" />
         <FlowCard step="03" icon={<Stethoscope size={19} />} title="El médico recibe el caso"
-          text="Información ordenada y, para homeopatía, referencia repertorial de apoyo." />
+          text="Información ordenada y lista para el médico" />
         <FlowCard step="04" icon={<Pill size={19} />} title="Formula y deriva"
-          text="Diagnóstico, fórmula firmada, orden de laboratorio y despacho de farmacia." />
+          text="Diagnóstico, fórmula firmada, orden de laboratorio y despacho de farmacia por parte del médico" />
       </div>
     </div>
   );
@@ -177,9 +176,6 @@ function Intake({ onFinish, go }) {
                 <input className="vs-input" value={f.edad} onChange={(e) => set("edad", e.target.value.replace(/\D/g, ""))} placeholder="Años" />
               </div>
             </div>
-            <div className="vs-note"><Sparkles size={15} style={{ flexShrink: 0, color: "var(--brand)" }} />
-              En el producto real, tu cédula recupera tu historia clínica cifrada. En este demo no se guarda ningún dato.
-            </div>
           </>
         )}
 
@@ -231,7 +227,7 @@ function Intake({ onFinish, go }) {
         {step === 3 && (
           <>
             <div className="vs-field">
-              <label>¿Dónde lo sientes? (localización)</label>
+              <label>¿Dónde sientes el dolor o malestar? (localización)</label>
               <input className="vs-input" value={f.localizacion} onChange={(e) => set("localizacion", e.target.value)} placeholder="Ej. garganta, cabeza, abdomen…" />
             </div>
             <div className="vs-grid2">
@@ -269,7 +265,7 @@ function Intake({ onFinish, go }) {
             </div>
             <div className="vs-note">
               <FileText size={15} style={{ flexShrink: 0, color: "var(--brand)" }} />
-              Al enviar, VitalSis ordena todo en una ficha y la entrega al médico. El diagnóstico y la fórmula son siempre del profesional.
+              Al enviar, VitalSis entrega tu registro al médico y te conecta.
             </div>
           </>
         )}
@@ -771,15 +767,6 @@ export default function App() {
       {view === "doctor" && <DoctorList cases={cases} open={openCase} freshId={freshId} />}
       {view === "casedetail" && current &&
         <DoctorCase c={current} back={() => go("doctor")} onSign={signCase} signed={signedIds.includes(openId)} />}
-
-      <footer className="vs-foot">
-        <div className="vs-wrap">
-          <p>
-            VitalSis · Demo para presentación a convocatoria. Datos simulados, no clínicos.
-            El diagnóstico y la prescripción los realiza siempre un profesional con licencia vigente.
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }

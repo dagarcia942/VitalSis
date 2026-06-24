@@ -457,7 +457,6 @@ function RepertoryRef({ rubricas }) {
         <span className="ico"><FlaskConical size={17} /></span>
         <span style={{ flex: 1 }}>
           <b>Referencia repertorial · Kent (dominio público)</b>
-          <small>Apoyo para el médico — visible solo aquí</small>
         </span>
         <ChevronDown size={18} style={{ color: "#9A7426", transform: open ? "rotate(180deg)" : "none", transition: ".2s" }} />
       </button>

@@ -95,12 +95,10 @@ function FlowCard({ step, icon, title, text }) {
 function Hero({ go }) {
   return (
     <div className="vs-wrap vs-hero">
-      <div className="vs-eyebrow">Salud conectada · Latinoamérica</div>
-      <h1 className="vs-h1">El paciente llega <i>preparado</i>. El médico decide.</h1>
       <p className="vs-lead">
         VitalSis organiza la historia del paciente antes de la consulta, detecta señales de
-        urgencia y la entrega lista al profesional —homeópata o de medicina general— que
-        diagnostica, formula y conecta con laboratorios y farmacia.
+        urgencia y la entrega lista al profesional que
+        diagnostica y formula.
       </p>
       <div className="vs-cta-row">
         <button className="vs-btn vs-btn-primary" onClick={() => go("intake")}>
@@ -189,7 +187,6 @@ function Intake({ onFinish, go }) {
               </div>
             </div>
             <div className="vs-note"><Sparkles size={15} style={{ flexShrink: 0, color: "var(--brand)" }} />
-              En el producto real, tu cédula recupera tu historia clínica cifrada. En este demo no se guarda ningún dato.
             </div>
           </>
         )}
@@ -654,10 +651,6 @@ export default function App() {
 
       <footer className="vs-foot">
         <div className="vs-wrap">
-          <p>
-            VitalSis · Demo para presentación a convocatoria. Datos simulados, no clínicos.
-            El diagnóstico y la prescripción los realiza siempre un profesional con licencia vigente.
-          </p>
         </div>
       </footer>
     </div>
